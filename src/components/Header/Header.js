@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink
-} from 'react-router-dom';
-import Home from './../../components/Home/Home.js';
-import Lessons from './../../components/Lessons/Lessons.js';
-import Progress from './../../components/Progress/Progress.js';
+import { NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 
 const Header = () => {
@@ -21,9 +14,6 @@ const Header = () => {
             <li><NavLink to="/progress">Progress</NavLink></li>
           </ul>
         </nav>
-        <Route exact path="/" component={Home}/>
-        <Route path="/lessons" component={Lessons}/>
-        <Route path="/progress" component={Progress}/>
       </header>
   )
 };

@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {increment} from '../../AC/index';
+import {connect} from 'react-redux';
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+class Home extends Component{
+  static propTypes = {};
+  render() {
+    return (
+      <div>
+        <h2>Home</h2>
+        <p>{this.props.count} <button onClick={this.handleIncrement}>+1</button></p>
+      </div>
+    )
+  }
+  handleIncrement = () => {
+    // const action = increment();
+    // this.props.dispatch(action);
+    this.props.wrappedIncrement();
+  }
+}
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    count: state.counter
+  }
+}
+export default connect(mapStateToProps, {wrappedIncrement: increment})(Home);
