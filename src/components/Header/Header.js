@@ -1,22 +1,27 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {Component} from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import './Header.css';
 import logo from './logo.svg';
 
-const Header = () => {
-  return (
-      <header className="header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="title">Welcome to React</h1>
-        <nav>
-          <ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/lessons">Lessons</NavLink></li>
-            <li><NavLink to="/progress">Progress</NavLink></li>
-          </ul>
-        </nav>
+class Header extends Component {  
+  render() {
+      return (
+        <header className="header">
+         <div className="header-in">
+          <div className="header-left">
+            <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
+            <h1 className="title">LearnWords</h1>
+          </div>
+          <div className="header-right">
+            <Link to="/login">Login</Link>
+          </div>
+         </div>
       </header>
-  )
+    )  
+  }
 };
+
+const HeaderWithRouter = withRouter(Header);
 
 export default Header;
 

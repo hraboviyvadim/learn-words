@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {increment} from '../../AC/index';
 import {connect} from 'react-redux';
 
 class Home extends Component{
-  static propTypes = {};
   render() {
     return (
       <div>
